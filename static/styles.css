@@ -220,3 +220,11 @@ p{
 footer{
   border-top: 2px solid #303030 !important;
 }
+
+modal{
+  background-color: #121212;
+}
+
+.login-modal{
+  background-color: #121212;
+}

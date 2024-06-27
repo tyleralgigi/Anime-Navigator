@@ -17,6 +17,38 @@
     </div>
 
   </nav>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="staticBackdrop1" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+    <div class="modal-dialog d-flex justify-content-center">
+        <div class="modal-content w-75">
+            <div class="modal-header login-modal">
+                <h5 class="modal-title" id="exampleModalLabel1">Sign in</h5>
+                <button  type="button" data-mdb-button-init data-mdb-ripple-init class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body p-4 login-modal">
+                <form class="login-modal">
+                    <!-- Email input -->
+                    <div data-mdb-input-init class="form-outline mb-4">
+                        <input type="email" id="email1" class="form-control" />
+                        <label class="form-label" for="email1">Email address</label>
+                    </div>
+
+                    <!-- password input -->
+                    <div data-mdb-input-init class="form-outline mb-4">
+                        <input type="password" id="password1" class="form-control" />
+                        <label class="form-label" for="password1">Password</label>
+                    </div>
+
+                    <!-- Submit button -->
+                    <button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-block">Login</button>
+                </form>
+            </div>
+        </div>
+    </div>
+  </div>
+  <!-- Modal -->
+
   <div class="main-wrapper">
     <div class="ad-space left-ad"></div>
     <div class="container">
@@ -67,6 +99,15 @@
           
           chatContainer.innerHTML += botDiv;
           chatContainer.scrollTop = chatContainer.scrollHeight; // Scroll to the bottom of the chat
+      });
+    </script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <script>
+      $(document).ready(function() {
+          // Ensure the script runs after the DOM is fully loaded
+          $('#staticBackdrop1').modal('show'); // Use the modal's ID to open it
       });
     </script>
     <script>
