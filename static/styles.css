@@ -228,3 +228,7 @@ modal{
 .login-modal{
   background-color: #121212;
 }
+
+.header-group-right{
+  padding-right: 20px;
+}

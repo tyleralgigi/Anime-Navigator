@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
-  <nav class="navbar navbar-dark">
+  <nav class="navbar navbar-dark justify-content-between  ">
     <div class="header-group">
       <a class="navbar-brand" href="#">
         <img src="{{ url_for('static', filename='icon.png') }}" width="30" height="30" alt="">
@@ -16,9 +16,47 @@
       </a>
     </div>
 
+    <div class="header-group-right">
+      <button type="button" class="btn profile-svg" id="profileBtn" data-toggle="modal" data-target="#staticProfile">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="white" class="bi bi-person" viewBox="0 0 16 16">
+          <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10s-3.516.68-4.168 1.332c-.678.678-.83 1.418-.832 1.664z"></path>
+        </svg>
+      </button>
+    </div>
+
   </nav>
   
+  <!-- Modal Profile -->
+  <div class="modal fade" id="staticProfile" tabindex="-1" aria-labelledby="staticProfile" aria-hidden="true">
+    <div class="modal-dialog d-flex justify-content-center">
+        <div class="modal-content w-75">
+            <div class="modal-header login-modal">
+                <h5 class="modal-title" id="staticProfile">Profile</h5>
+                <button type="button" class="btn btn-secondary btn-sm" id='closeBtn' data-toggle="modal" data-target="#staticProfile">
+                  <span class="glyphicon glyphicon-arrow-left"></span> Close
+                </button>
+            </div>
+            <div class="modal-body p-4 login-modal">
+                <form class="login-modal">
+                    <!-- Email input -->
+                    <div data-mdb-input-init class="form-outline mb-4">
+                        <label class="form-label" id="profileEmail">Email address</label>
+                    </div>
+                </form>
+
+                <button type="button" class="btn btn-danger btn-sm" id='signOutBtn'>
+                  Sign Out
+                </button>
+            </div>
+        </div>
+    </div>
+  </div>
   <!-- Modal -->
+
+
+
+
+  <!-- Modal Sign In-->
   <div class="modal fade" id="staticBackdrop1" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true">
     <div class="modal-dialog d-flex justify-content-center">
         <div class="modal-content w-75">
@@ -39,14 +77,64 @@
                         <label class="form-label" for="password1">Password</label>
                     </div>
 
-                    <!-- Submit button -->
-                    <button type="button" data-mdb-button-init data-mdb-ripple-init id='signInButton' class="btn btn-primary btn-block">Login</button>
+                    <div class="d-flex justify-content-between">
+                      <!-- Submit button -->
+                      <button type="button" data-mdb-button-init data-mdb-ripple-init id='signInButton' class="btn btn-primary btn-block">Sign In</button>
+
+                      <button type="button" data-mdb-button-init data-mdb-ripple-init id='signUpButton' class="btn btn-secondary btn-block">Sign Up</button>
+
+                    </div>
+                    
                 </form>
             </div>
         </div>
     </div>
   </div>
   <!-- Modal -->
+
+
+    <!-- Modal Sign Up-->
+    <div class="modal fade" id="staticSignUp" tabindex="-1" aria-labelledby="sign Up" aria-hidden="true" >
+      <div class="modal-dialog d-flex justify-content-center">
+          <div class="modal-content w-75">
+              <div class="modal-header login-modal">
+                  <h5 class="modal-title" id="sign Up">Sign Up</h5>
+                  <button type="button" class="btn btn-secondary btn-sm" id='backBtn'>
+                    <span class="glyphicon glyphicon-arrow-left"></span> Back
+                  </button>
+              </div>
+              <div class="modal-body p-4 login-modal needs-validation" novalidate >
+                  <form class="signup-modal"  id="signupForm" novalidate>
+                    <!-- Email input -->
+                    <div class="form-outline mb-4">
+                        <input type="email" id="email2" class="form-control" required />
+                        <label class="form-label" for="email2">Email address</label>
+                    </div>
+                
+                    <!-- Password input -->
+                    <div class="form-outline mb-4">
+                        <input type="password" id="password2" class="form-control" required />
+                        <label class="form-label" for="password2">Password</label>
+                    </div>
+                
+                    <!-- Re-enter Password input -->
+                    <div class="form-outline mb-4">
+                        <input type="password" id="passwordRe2" class="form-control" required />
+                        <label class="form-label" for="passwordRe2">Confirm Password</label>
+                    </div>
+  
+                      <div class="d-flex justify-content-between">
+                        <!-- Submit button -->
+                        <button type="button" data-mdb-button-init data-mdb-ripple-init id='creatAccBtn' class="btn btn-primary btn-block">Create Account</button>
+                      </div>
+                      
+                  </form>
+              </div>
+          </div>
+      </div>
+    </div>
+    <!-- Modal -->
+
 
   <div class="main-wrapper">
     <div class="ad-space left-ad"></div>
@@ -81,10 +169,13 @@
     </a>
   </footer>
 </div>
+    <!-- Add Firebase SDK via CDN -->
+    <!-- <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js"></script> -->
     <script type="module">
       // Import the functions you need from the SDKs you need
-      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-      import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-analytics.js";
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js";
+      import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut  } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js";
       // TODO: Add SDKs for Firebase products that you want to use
       // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -102,27 +193,122 @@
 
       // Initialize Firebase
       const app = initializeApp(firebaseConfig);
-      const analytics = getAnalytics(app);
+      // const analytics = getAnalytics(app);
+      const auth = getAuth(app);
+      
+      auth.onAuthStateChanged(function(user) {
+            if (user) {
+              
+                console.log("User is signed in", user );
+                document.getElementById("profileEmail").innerText = "Email: " + user.email;
+                // Redirect to home page or change UI accordingly
+                // signOut(auth).then(() => {
+                //   console.log("sikgn outwed");
+                //   // Sign-out successful.
+                // }).catch((error) => {
+                //   // An error happened.
+                // });
+            } else {
+                console.log("No user is signed in.");
+                // Optionally show login modal
+                $('#staticBackdrop1').modal('show');
+            }
+      });
 
       var email = document.getElementById("email1");
       var password = document.getElementById("password1");
+      var createpassword = document.getElementById("password2");
+      var rePassword = document.getElementById("passwordRe2");
       var signInButton = document.getElementById("signInButton");
-      // var signUpButton = document.getElementById("signUpButton");
+      var signUpButton = document.getElementById("signUpButton");
+      var backBtn = document.getElementById("backBtn");
+      var profileBtn = document.getElementById("profileBtn");
+      var signOutBtn = document.getElementById("signOutBtn");
+      var creatAccBtn = document.getElementById("creatAccBtn");
+
+      signOutBtn.addEventListener("click", function() {
+        // Sign in the user using Firebase's signInWithEmailAndPassword method
+        signOut(auth).then(() => {
+          console.log("sikgn outwed");
+          $('#staticProfile').modal('toggle');
+          // Sign-out successful.
+        }).catch((error) => {
+          // An error happened.
+        });
+      });
 
       signInButton.addEventListener("click", function() {
         event.preventDefault();
         // Sign in the user using Firebase's signInWithEmailAndPassword method
-        firebase.auth().signInWithEmailAndPassword(email.value, password.value)
-          .then(function() {
+        signInWithEmailAndPassword(auth, email.value, password.value)
+          .then((userCredential) => {
             // Redirect the user to the protected resources page
             // window.location.href = "/protected-resources.html";
             console.log("success");
+            console.log(userCredential);
+            $('#staticBackdrop1').modal('toggle');
           })
           .catch(function(error) {
             // Show an error message
             console.log("error");
             alert(error.message);
           });
+      });
+
+      signUpButton.addEventListener("click", function() {
+        event.preventDefault();
+        $('#staticBackdrop1').modal('toggle');
+        $('#staticSignUp').modal('show');
+      });
+
+      backBtn.addEventListener("click", function() {
+        event.preventDefault();
+        $('#staticSignUp').modal('toggle');
+        $('#staticBackdrop1').modal('show');
+      });
+
+      const signupForm = document.getElementById('signupForm');
+      const email2 = document.getElementById('email2');
+      const passwordCreate = document.getElementById('password2');
+      const passwordConfirm = document.getElementById('passwordRe2');
+
+      creatAccBtn.addEventListener('click', function(event) {
+          event.preventDefault(); // Prevent form submission
+
+          // Check if the form has any validation errors
+          if (!signupForm.checkValidity()) {
+              signupForm.classList.add('was-validated'); // Bootstrap class to handle validation styles
+          }
+
+          // Check if passwords match
+          if (passwordCreate.value !== passwordConfirm.value) {
+              passwordConfirm.setCustomValidity("Passwords do not match"); // Set custom validation message
+              passwordConfirm.reportValidity(); // Trigger the validation message
+          } else {
+              passwordConfirm.setCustomValidity(""); // Clear any previous validation message
+              // Here you can proceed with form submission like sending data to server
+              console.log("Form is ready to be submitted");
+              // For example: ajax call to server or form.submit()
+              console.log(email2.value);
+              console.log(passwordCreate.value);
+              createUserWithEmailAndPassword(auth, email2.value, passwordCreate.value)
+              .then((userCredential) => {
+                // Signed up 
+                const user = userCredential.user;
+                $('#staticSignUp').modal('toggle');
+                $('#staticBackdrop1').modal('show');
+              })
+              .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                // ..
+              });
+          }
+      });
+
+      // Reset custom validity upon changing the value
+      passwordConfirm.addEventListener('input', function() {
+          passwordConfirm.setCustomValidity('');
       });
 
     </script>
@@ -147,12 +333,6 @@
     </script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    <script>
-      $(document).ready(function() {
-          // Ensure the script runs after the DOM is fully loaded
-          $('#staticBackdrop1').modal('show'); // Use the modal's ID to open it
-      });
-    </script>
     <script>
       document.addEventListener('DOMContentLoaded', function() {
     const userInput = document.getElementById('user-input');
