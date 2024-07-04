@@ -1,9 +1,5 @@
 from flask import Flask, request, jsonify, render_template
 from openai import OpenAI
-import os
-from bs4 import BeautifulSoup
-from markdown import markdown
-import re
 
 
 app = Flask(__name__)
