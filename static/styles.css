@@ -251,3 +251,41 @@ modal{
   color: white;
 }
 
+
+
+@media only screen and (max-width: 1000px) { 
+  .ad-space { 
+    display: none; 
+  } 
+
+  .container{
+    max-width: 100%;
+    margin: 0 0px;
+  }
+
+  .main-wrapper {
+    padding: 0 0; /* Optional: adds padding on the sides */
+  }
+
+  .ai-message{
+    margin-right: 15px;
+    padding: 10px 20px;
+  }
+}
+
+
+@media only screen and (max-width: 750px) { 
+  .ad-space { 
+    display: none; 
+  } 
+
+  .container{
+    max-width: 100%;
+    margin: 0 0px;
+  }
+
+  .ai-message{
+    margin-right: 0px;
+    padding: 0px;
+  }
+}
