@@ -229,6 +229,19 @@ modal{
   background-color: #121212;
 }
 
+.welcome-modal{
+  background-color: #121212;
+}
+
+.welcome-icon-div{
+  text-align: center;
+  padding-bottom: 24px;
+}
+
+.welcome-text{
+  text-align: center;
+}
+
 .header-group-right{
   padding-right: 20px;
 }

@@ -26,6 +26,45 @@
 
   </nav>
   
+    <!-- Welcome Modal -->
+    <div class="modal fade" id="wlecomeModal" tabindex="-1" aria-labelledby="wlecomeModal" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+      <div class="modal-dialog d-flex justify-content-center">
+          <div class="modal-content">
+              <!-- <div class="modal-header login-modal">
+                  <h5 class="modal-title" id="wlecomeModal">Welcome to Anime Navigator</h5>
+              </div> -->
+              <div class="modal-body p-4 welcome-modal">
+                  <form class="welcome-modal">
+                      <!-- Email input -->
+                      <div class="welcome-icon-div">
+                        <img src="{{ url_for('static', filename='icon.png') }}" width="50" height="50" alt="">
+                      </div>
+
+                      <div data-mdb-input-init class="form-outline mb-4 welcome-text">
+                          <h5 class="form-label" id="welcomeTitle"><strong>Welcome To Anime Navigator</strong></h5>
+                      </div>
+
+                      <div data-mdb-input-init class="form-outline mb-4 welcome-text">
+                        <h class="form-label" id="welcomeTitle">Discover your next favorite anime with our AI-powered chatbot that tailors recommendations based on your preferences and viewing history!</h>
+                      </div>
+  
+                  </form>
+  
+  
+                  <div class="d-flex justify-content-between">
+                    <!-- Submit button -->
+                    <button type="button" data-mdb-button-init data-mdb-ripple-init id='toSignInButton' class="btn btn-primary btn-block">Sign In</button>
+
+                    <button type="button" data-mdb-button-init data-mdb-ripple-init id='toSignUpButton' class="btn btn-secondary btn-block">Sign Up</button>
+
+                  </div>
+              </div>
+          </div>
+      </div>
+    </div>
+    <!-- Modal -->
+
+
   <!-- Modal Profile -->
   <div class="modal fade" id="staticProfile" tabindex="-1" aria-labelledby="staticProfile" aria-hidden="true" data-backdrop="static" data-keyboard="false">
     <div class="modal-dialog d-flex justify-content-center">
@@ -68,17 +107,17 @@
             <div class="modal-header login-modal">
                 <h5 class="modal-title" id="exampleModalLabel1">Sign in</h5>
             </div>
-            <div class="modal-body p-4 login-modal">
-                <form class="login-modal">
+            <div class="modal-body p-4 login-modal" novalidate>
+                <form class="login-modal" id="signinForm" novalidate>
                     <!-- Email input -->
                     <div data-mdb-input-init class="form-outline mb-4">
-                        <input type="email" id="email1" class="form-control" />
+                        <input type="email" id="email1" class="form-control" required/>
                         <label class="form-label" for="email1">Email address</label>
                     </div>
 
                     <!-- password input -->
                     <div data-mdb-input-init class="form-outline mb-4">
-                        <input type="password" id="password1" class="form-control" />
+                        <input type="password" id="password1" class="form-control" required/>
                         <label class="form-label" for="password1">Password</label>
                     </div>
 
@@ -204,7 +243,7 @@
 
             } else {
                 console.log("No user is signed in.");
-                $('#staticBackdrop1').modal('show');
+                $('#wlecomeModal').modal('show');
             }
       });
 
@@ -250,6 +289,8 @@
       var profileBtn = document.getElementById("profileBtn");
       var signOutBtn = document.getElementById("signOutBtn");
       var creatAccBtn = document.getElementById("creatAccBtn");
+      var toSignInButton = document.getElementById("toSignInButton");
+      var toSignUpButton = document.getElementById("toSignUpButton");
 
       signOutBtn.addEventListener("click", function() {
         // Sign in the user using Firebase's signInWithEmailAndPassword method
@@ -263,26 +304,54 @@
         });
       });
 
+      toSignInButton.addEventListener("click", function() {
+        event.preventDefault();
+        $('#wlecomeModal').modal('hide');
+        $('#staticBackdrop1').modal('show',{
+            backdrop: 'static',
+            keyboard: false
+        });
+      });
+
+      toSignUpButton.addEventListener("click", function() {
+        event.preventDefault();
+        $('#wlecomeModal').modal('hide');
+        $('#staticSignUp').modal('show',{
+            backdrop: 'static',
+            keyboard: false
+        });
+      });
+
+      const signinForm = document.getElementById('signinForm');
       signInButton.addEventListener("click", function() {
         event.preventDefault();
         // Sign in the user using Firebase's signInWithEmailAndPassword method
-        signInWithEmailAndPassword(auth, email.value, password.value)
+
+          if (!signinForm.checkValidity()) {
+              signinForm.classList.add('was-validated'); // Bootstrap class to handle validation styles
+          }else{
+          
+          signInWithEmailAndPassword(auth, email.value, password.value)
           .then((userCredential) => {
             console.log("success");
             $('#staticBackdrop1').modal('toggle',{
-    backdrop: 'static',
-    keyboard: false
-});
+                backdrop: 'static',
+                keyboard: false
+            });
           })
           .catch(function(error) {
             // Show an error message
             console.log("error");
             alert(error.message);
           });
+        }
+
+        
       });
 
       signUpButton.addEventListener("click", function() {
         event.preventDefault();
+        $('#wlecomeModal').modal('hide');
         $('#staticBackdrop1').modal('toggle');
         $('#staticSignUp').modal('show');
       });
