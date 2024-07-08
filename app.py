@@ -15,6 +15,14 @@ YOUR_NICHE="recommending anime"
 def index():
     return render_template('index.html')
 
+@app.route('/tos')
+def terms():
+    return render_template('tos.html')
+
+@app.route('/privacy')
+def privacy():
+    return render_template('privacy.html')
+
 @app.route('/chat', methods=['POST'])
 def chat():
     user_input = request.json.get('message')
