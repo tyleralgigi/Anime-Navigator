@@ -1,6 +1,6 @@
 from flask import Flask, request, jsonify, render_template
 from openai import OpenAI
-
+from urllib.parse import urlparse, urlunparse
 
 app = Flask(__name__)
 
@@ -22,6 +22,14 @@ def terms():
 @app.route('/privacy')
 def privacy():
     return render_template('privacy.html')
+
+@app.route('/ads.txt')
+def ads():
+    return render_template('ads.txt')
+
+@app.route('/robots.txt')
+def robots():
+    return render_template('robots.txt')
 
 @app.route('/chat', methods=['POST'])
 def chat():

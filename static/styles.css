@@ -14,28 +14,29 @@ body {
 
 
 .ad-space {
-  background-color: blue; /* Or any color you prefer */
-  width: 10%; /* Adjust based on preference */
-  min-width: 100px; /* Minimum width of the ad space */
-  display: block; /* Ensure it takes up space even if empty */
+
+  text-align: center;
+  width: 15%;
+  height: 500px;
+  max-width: 320px;
+  /* max-height: 700px; */
+  display: block;
 }
 
 .phone-ad-space{
-  background-color: blue; /* Or any color you prefer */
+
   width: 100%; /* Adjust based on preference */
-  height: 50px;
+  height: 100px;
   display: none;
 }
 
 .left-ad {
   margin-right: 100px;
-  height: 45%;
   align-self: center;
 }
 
 .right-ad {
   margin-left: 100px;
-  height: 45%;
   align-self: center;
 }
 
@@ -277,10 +278,10 @@ modal{
 
 
 
-@media only screen and (max-width: 1100px) { 
-  .ad-space { 
-    width: 2%;
-  } 
+@media only screen and (max-width: 1100px) {
+  .ad-space {
+    width: 0%;
+  }
 
   .container{
     max-width: 100%;
@@ -298,10 +299,10 @@ modal{
 }
 
 
-@media only screen and (max-width: 900px) { 
-  .ad-space { 
-    display: none; 
-  } 
+@media only screen and (max-width: 900px) {
+  .ad-space {
+    display: none;
+  }
 
   .phone-ad-space{
     display: block;

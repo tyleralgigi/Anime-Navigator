@@ -1,13 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-KF25YELGMQ"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-KF25YELGMQ');
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-adsense-account" content="ca-pub-1820187908811981">
     <title>Chat with Anime Assistant</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1820187908811981"
-    crossorigin="anonymous"></script>
+     crossorigin="anonymous"></script>
+    <script async custom-element="amp-ad" src="https://cdn.ampproject.org/v0/amp-ad-0.1.js"></script>
 </head>
 <body>
   <nav class="navbar navbar-dark justify-content-between  ">
@@ -19,15 +30,19 @@
     </div>
 
     <div class="header-group-right">
-      <button type="button" class="btn profile-svg" id="profileBtn" data-toggle="modal" data-target="#staticProfile">
-        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="white" class="bi bi-person" viewBox="0 0 16 16">
-          <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10s-3.516.68-4.168 1.332c-.678.678-.83 1.418-.832 1.664z"></path>
-        </svg>
-      </button>
+      <span>
+        <button type="button" data-mdb-button-init data-mdb-ripple-init id='signInBtnHeader' class="btn btn-primary btn-block">Sign In</button>
+        <button type="button" class="btn profile-svg" id="profileBtn" data-toggle="modal" data-target="#staticProfile">
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="white" class="bi bi-person" viewBox="0 0 16 16">
+            <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10s-3.516.68-4.168 1.332c-.678.678-.83 1.418-.832 1.664z"></path>
+          </svg>
+        </button>
+      </span>
+
     </div>
 
   </nav>
-  
+
     <!-- Welcome Modal -->
     <div class="modal fade" id="wlecomeModal" tabindex="-1" aria-labelledby="wlecomeModal" aria-hidden="true" data-backdrop="static" data-keyboard="false">
       <div class="modal-dialog d-flex justify-content-center">
@@ -49,15 +64,13 @@
                       <div data-mdb-input-init class="form-outline mb-4 welcome-text">
                         <h class="form-label" id="welcomeTitle">Discover your next favorite anime with our AI-powered chatbot that tailors recommendations based on your preferences and viewing history!</h>
                       </div>
-  
-                  </form>
-  
-  
-                  <div class="d-flex justify-content-between">
-                    <!-- Submit button -->
-                    <button type="button" data-mdb-button-init data-mdb-ripple-init id='toSignInButton' class="btn btn-primary btn-block">Sign In</button>
 
-                    <button type="button" data-mdb-button-init data-mdb-ripple-init id='toSignUpButton' class="btn btn-secondary btn-block">Sign Up</button>
+                  </form>
+
+
+                  <div class="d-flex justify-content-center">
+                    <!-- Submit button -->
+                    <button type="button" data-mdb-button-init data-mdb-ripple-init id='startChattingBtn' class="btn btn-primary btn-block">Start Chatting</button>
 
                   </div>
               </div>
@@ -104,7 +117,7 @@
     <div class="modal-dialog d-flex justify-content-center">
         <div class="modal-content w-75">
             <div class="modal-header login-modal">
-                <h5 class="modal-title" id="exampleModalLabel1">Forgot Password</h5>
+                <h5 class="modal-title" id="exampleModalLabel1">Sign In</h5>
             </div>
             <div class="modal-body p-4 login-modal">
                 <form class="login-modal" id="signinForm" novalidate>
@@ -115,23 +128,31 @@
                     </div>
 
                     <!-- password input -->
-                    <div data-mdb-input-init class="form-outline mb-4">
+                    <div data-mdb-input-init class="form-outline">
                         <input type="password" id="password1" class="form-control" required/>
                         <div class="d-flex justify-content-between">
                           <label class="form-label" for="password1">Password</label>
                           <button type="button" class="btn astext bg-transparent forgotpass" id='toForgotPasswordBtn'><u>Forgot Password</u></button>
                         </div>
-                        
+
                     </div>
 
                     <div class="d-flex justify-content-between">
                       <!-- Submit button -->
-                      <button type="button" data-mdb-button-init data-mdb-ripple-init id='signInButton' class="btn btn-primary btn-block">Sign In</button>
+                      <button type="button" data-mdb-button-init data-mdb-ripple-init id='signInBtn' class="btn btn-primary btn-block">Sign In</button>
 
                       <button type="button" data-mdb-button-init data-mdb-ripple-init id='signUpButton' class="btn btn-secondary btn-block">Sign Up</button>
 
                     </div>
-                    
+
+                    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-1 border-bottom"></div>
+
+                      <div data-mdb-input-init class="form-outline d-flex align-items-center justify-content-center">
+                        <div class="d-flex">
+                          <button type="button" class="btn astext bg-transparent forgotpass" id='guestButton'><u>Continue As Guest</u></button>
+                      </div>
+
+                    </div>
                 </form>
             </div>
         </div>
@@ -156,13 +177,13 @@
                       <input type="email" id="email2" class="form-control" required />
                       <label class="form-label" for="email2">Email address</label>
                   </div>
-              
+
                   <!-- Password input -->
                   <div class="form-outline mb-4">
                       <input type="password" id="password2" class="form-control" required />
                       <label class="form-label" for="password2">Password</label>
                   </div>
-              
+
                   <!-- Re-enter Password input -->
                   <div class="form-outline mb-4">
                       <input type="password" id="passwordRe2" class="form-control" required />
@@ -180,7 +201,7 @@
                       <!-- Submit button -->
                       <button type="button" data-mdb-button-init data-mdb-ripple-init id='creatAccBtn' class="btn btn-primary btn-block">Create Account</button>
                     </div>
-                    
+
                 </form>
             </div>
         </div>
@@ -208,12 +229,12 @@
                       <input type="email" id="emailForgotPassInput" class="form-control" required />
                       <label class="form-label" for="email2">Email address</label>
                   </div>
-            
+
                     <div class="d-flex justify-content-between">
                       <!-- Submit button -->
                       <button type="button" data-mdb-button-init data-mdb-ripple-init id='forgotPasswordSubmit' class="btn btn-primary btn-block">Submit</button>
                     </div>
-                    
+
                 </form>
             </div>
         </div>
@@ -222,9 +243,27 @@
   <!-- Modal -->
 
   <div class="main-wrapper">
-    <div class="ad-space left-ad"></div>
+    <div class="ad-space left-ad">
+<amp-ad width="100vw" height="320"
+     type="adsense"
+     data-ad-client="ca-pub-1820187908811981"
+     data-ad-slot="9594489532"
+     data-auto-format="rspv"
+     data-full-width="">
+  <div overflow=""></div>
+</amp-ad>
+    </div>
     <div class="container">
-      <div class="phone-ad-space"> </div>
+      <div class="phone-ad-space">
+          <amp-ad width="100vw" height="320"
+             type="adsense"
+             data-ad-client="ca-pub-1820187908811981"
+             data-ad-slot="6911102983"
+             data-auto-format="rspv"
+             data-full-width="">
+          <div overflow=""></div>
+        </amp-ad>
+        </div>
         <div id="chat-container" class="text-light p-3 rounded">
             <!-- Messages will be displayed here -->
         </div>
@@ -238,7 +277,16 @@
             </form>
         </div>
     </div>
-    <div class="ad-space right-ad"></div>
+    <div class="ad-space right-ad">
+        <amp-ad width="100vw" height="320"
+     type="adsense"
+     data-ad-client="ca-pub-1820187908811981"
+     data-ad-slot="9594489532"
+     data-auto-format="rspv"
+     data-full-width="">
+  <div overflow=""></div>
+</amp-ad>
+    </div>
 </div>
 <div class="footer-container">
   <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4">
@@ -249,8 +297,8 @@
           <a href="/tos"><u>Terms Of Serivce</u></a>
           <a href="/privacy">- <u>Pricavy Policy</u></a>
         </span>
-      
-      
+
+
     </div>
       <a href="/" class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
         <img src="{{ url_for('static', filename='icon.png') }}" width="50" height="50" alt="">
@@ -282,22 +330,28 @@
       const auth = getAuth(app);
       // const db = getFirestore(app);
 
+      var profileBtn = document.getElementById("profileBtn");
+      var signInBtnHeader = document.getElementById("signInBtnHeader");
+
       auth.onAuthStateChanged(function(user) {
             if (user) {
-              
+
                 console.log("User is signed in", user );
                 document.getElementById("profileEmail").innerText = "Email: " + user.email;
-
+                profileBtn.style.display = 'Block';
+                signInBtnHeader.style.display = 'None';
             } else {
                 console.log("No user is signed in.");
+                profileBtn.style.display = 'None';
+                signInBtnHeader.style.display = 'Block';
                 $('#wlecomeModal').modal('show');
-            }
+            } 
       });
 
       // function sendMessage(messageText) {
       //   const userId = firebase.auth().currentUser.uid; // Get the current user's ID
       //   const timestamp = new Date();
-        
+
       //   db.collection("chats").add({
       //     userId: userId,
       //     message: messageText,
@@ -309,7 +363,7 @@
 
       // function loadChatHistory() {
       //   const userId = firebase.auth().currentUser.uid;  // Fetch the unique user ID
-        
+
       //   db.collection("chats")
       //     .where("userId", "==", userId)  // Query only messages from this user
       //     .orderBy("timestamp", "asc")  // Order by time sent
@@ -330,20 +384,26 @@
       var password = document.getElementById("password1");
       var createpassword = document.getElementById("password2");
       var rePassword = document.getElementById("passwordRe2");
-      var signInButton = document.getElementById("signInButton");
+      var signInBtn = document.getElementById("signInBtn");
       var signUpButton = document.getElementById("signUpButton");
       var tosCheckbox = document.getElementById("tosCheckbox");
       var backBtn = document.getElementById("backBtn");
       var backForgotPassBtn = document.getElementById("backForgotPassBtn");
-      var profileBtn = document.getElementById("profileBtn");
+
       var signOutBtn = document.getElementById("signOutBtn");
       var creatAccBtn = document.getElementById("creatAccBtn");
-      var toSignInButton = document.getElementById("toSignInButton");
-      var toSignUpButton = document.getElementById("toSignUpButton");
+      var startChattingBtn = document.getElementById("startChattingBtn");
       var toForgotPasswordBtn = document.getElementById("toForgotPasswordBtn");
       var forgotPasswordEmail = document.getElementById("forgotPasswordEmail");
       var forgotPasswordSubmit = document.getElementById("forgotPasswordSubmit");
       var emailForgotPassInput = document.getElementById("emailForgotPassInput");
+      var guestButton = document.getElementById("guestButton");
+
+
+      guestButton.addEventListener("click", function() {
+        event.preventDefault();
+        $('#staticBackdrop1').modal('hide');
+      });
 
       signOutBtn.addEventListener("click", function() {
         // Sign in the user using Firebase's signInWithEmailAndPassword method
@@ -356,9 +416,18 @@
           // An error happened.
         });
       });
-
-      toSignInButton.addEventListener("click", function() {
+      
+      signInBtnHeader.addEventListener("click", function() {
         event.preventDefault();
+        $('#staticBackdrop1').modal('show',{
+            backdrop: 'static',
+            keyboard: false
+        });
+      });
+
+      startChattingBtn.addEventListener("click", function() {
+        event.preventDefault();
+        console.log('toSignInButton')
         $('#wlecomeModal').modal('hide');
         $('#staticBackdrop1').modal('show',{
             backdrop: 'static',
@@ -366,14 +435,14 @@
         });
       });
 
-      toSignUpButton.addEventListener("click", function() {
-        event.preventDefault();
-        $('#wlecomeModal').modal('hide');
-        $('#staticSignUp').modal('show',{
-            backdrop: 'static',
-            keyboard: false
-        });
-      });
+      // toSignUpButton.addEventListener("click", function() {
+      //   event.preventDefault();
+      //   $('#wlecomeModal').modal('hide');
+      //   $('#staticSignUp').modal('show',{
+      //       backdrop: 'static',
+      //       keyboard: false
+      //   });
+      // });
 
       toForgotPasswordBtn.addEventListener("click", function() {
         event.preventDefault();
@@ -385,14 +454,15 @@
       });
 
       const signinForm = document.getElementById('signinForm');
-      signInButton.addEventListener("click", function() {
+      signInBtn.addEventListener("click", function() {
         event.preventDefault();
+        console.log('Sign in')
         // Sign in the user using Firebase's signInWithEmailAndPassword method
 
           if (!signinForm.checkValidity()) {
               signinForm.classList.add('was-validated'); // Bootstrap class to handle validation styles
           }else{
-          
+
           signInWithEmailAndPassword(auth, email.value, password.value)
           .then((userCredential) => {
             console.log("success");
@@ -463,7 +533,7 @@
           if (passwordCreate.value !== passwordConfirm.value) {
               passwordConfirm.setCustomValidity("Passwords do not match"); // Set custom validation message
               passwordConfirm.reportValidity(); // Trigger the validation message
-          } else if (tosCheckbox.value == false) {
+          } else if (!tosCheckbox.checked) {
             tosCheckbox.setCustomValidity("Please check to agree with TOS and Privacy Policy"); // Set custom validation message
             tosCheckbox.reportValidity(); // Trigger the validation message
           } else {
@@ -475,7 +545,7 @@
               console.log(passwordCreate.value);
               createUserWithEmailAndPassword(auth, email2.value, passwordCreate.value)
               .then((userCredential) => {
-                // Signed up 
+                // Signed up
                 const user = userCredential.user;
                 $('#staticSignUp').modal('toggle');
                 $('#staticBackdrop1').modal('show');
@@ -505,10 +575,10 @@
           // If using an icon with the message
           let botDiv = `<div class='ai-message'><img src="${iconPath}" alt="Bot" class="chat-icon">${introMessage}</div>
           <div class='ai-message'><img src="${iconPath}" alt="Bot" class="chat-icon">${introMessage2}</div>`;
-          
+
           // If not using an icon, just use the text
           // let botDiv = `<div class='ai-message'><b>Bot:</b> ${introMessage}</div>`;
-          
+
           chatContainer.innerHTML += botDiv;
           chatContainer.scrollTop = chatContainer.scrollHeight; // Scroll to the bottom of the chat
       });
